@@ -1,4 +1,3 @@
-main :: IO()
 
 factor:: Float -> Float
 factor 0 = 1
@@ -9,6 +8,8 @@ euler m n=((m**(n-1))/(factor(n-1))) + euler m (n-1)
 
 ep:: Float -> Float ->Float
 ep x y = (((abs((exp(x))-(euler x y)))/(exp(x)))*100)
+
+main :: IO()
 main =   do
     print(euler 5 15)
     print(exp(5))
