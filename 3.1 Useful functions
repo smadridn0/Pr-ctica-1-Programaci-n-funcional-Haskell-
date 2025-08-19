@@ -14,5 +14,5 @@ orderDesc (p:xs) =
 
 main :: IO ()
 main = do
-  print (remData [1,9,3,7,2,6,4,8,5,10] 3 7)      
+  print (remData [1,9,3,7,2,6,4,8,5,10] 2 6)      
   print (orderDesc [3.8,1.2,5.1,2.7,5.4])        
