@@ -1,1 +1,22 @@
+a :: Int -> Int -> Double
+a k n
+    | k == 0    = sqrt (1 / fromIntegral n)
+    | otherwise = sqrt (2 / fromIntegral n)
 
+dctK :: [Double] -> Int -> Double
+dctK xs k =
+    let n = length xs
+        factor = a k n
+        terms  = [ (xs !! i) * cos ((fromIntegral i + 0.5) * pi * fromIntegral k / fromIntegral n)
+                 | i <- [0..n-1] ]
+    in factor * sum terms
+
+
+dct :: [Double] -> [Double]
+dct xs =
+    let n = length xs
+    in map (dctK xs) [0 .. n-1]
+
+
+main :: IO ()
+main = print (dct [1,2,3,4,5,6,7,8,9,10])
