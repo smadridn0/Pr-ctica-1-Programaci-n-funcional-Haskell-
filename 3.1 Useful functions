@@ -1,1 +1,18 @@
-hello
+miFilter :: (a -> Bool) -> [a] -> [a]
+miFilter _ []     = []
+miFilter p (x:xs) = if p x then x : miFilter p xs else miFilter p xs
+
+remData :: (Ord a) => [a] -> a -> a -> [a]
+remData xs lower upper = miFilter (\x -> x >= lower && x <= upper) xs
+
+orderDesc :: [Float] -> [Float]
+orderDesc []     = []
+orderDesc (p:xs) =
+  let larger  = orderDesc (miFilter (\x -> x >  p) xs)
+      smaller = orderDesc (miFilter (\x -> x <= p) xs)
+  in  larger ++ [p] ++ smaller
+
+main :: IO ()
+main = do
+  print (remData [1,9,3,7,2,6,4,8,5,10] 3 7)      
+  print (orderDesc [3.8,1.2,5.1,2.7,5.4])        
