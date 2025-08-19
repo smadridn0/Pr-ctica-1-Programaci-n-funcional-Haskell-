@@ -1,0 +1,16 @@
+factor :: Double -> Double
+factor 0 = 1
+factor x =  x * factor (x - 1)
+
+logn :: Double -> Int -> Double
+logn m n = sum [ ((-1) ^ (k+1)) * ((m - 1) ** fromIntegral k) / fromIntegral k
+               | k <- [1..n] ]
+
+ep :: Double -> Int -> Double
+ep x y = (abs(log(x)-logn x y)/abs(log(x)))*100
+
+main :: IO()
+main =do
+    print(logn (0.5 ) 25)
+    print(log(0.5 ))
+    print(ep (0.5 ) 25)
