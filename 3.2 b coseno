@@ -1,0 +1,15 @@
+factor :: Int -> Double
+factor 0 = 1
+factor x = fromIntegral x * factor (x - 1)
+
+cose :: Double -> Int -> Double
+cose m n = sum [ ((-1) ^ k) / factor (2 * k) * (m ** fromIntegral (2 * k)) | k <- [0..n] ]
+
+ep :: Double -> Int -> Double
+ep x y = (abs(cos(x)-cose x y)/abs(cos(x)))*100
+
+main :: IO()
+main =do
+    print(cose (3 ) 25)
+    print(cos(3 ))
+    print(ep (3 ) 25)
