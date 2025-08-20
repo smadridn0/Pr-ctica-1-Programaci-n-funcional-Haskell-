@@ -1,16 +1,16 @@
--- | miFilter :: (a -> Bool) -> [a] -> [a]
+-- | miFilter :: (Float -> Bool) -> [Float] -> [Float]
 -- | Propósito: conservar solo los elementos que cumplen el predicado.
--- | Entradas: p (a -> Bool), xs [a]
+-- | Entradas: p (Float -> Bool), xs [Float]
 -- | Salida: sublista de xs con los x tales que p x == True
-miFilter :: (a -> Bool) -> [a] -> [a]
+miFilter :: (Float -> Bool) -> [Float] -> [Float]
 miFilter _ []     = []
 miFilter p (x:xs) = if p x then x : miFilter p xs else miFilter p xs
 
--- | remData :: (Ord a) => [a] -> a -> a -> [a]
+-- | remData :: [Float] -> Float -> Float -> [Float]
 -- | Propósito: mantener elementos en el intervalo [lower, upper].
--- | Entradas: xs [a], lower a, upper a
+-- | Entradas: xs [Float], lower Float, upper Float
 -- | Salida: sublista con lower <= x <= upper
-remData :: (Ord a) => [a] -> a -> a -> [a]
+remData :: [Float] -> Float -> Float -> [Float]
 remData xs lower upper = miFilter (\x -> x >= lower && x <= upper) xs
 
 -- | insertDesc :: Float -> [Float] -> [Float]
