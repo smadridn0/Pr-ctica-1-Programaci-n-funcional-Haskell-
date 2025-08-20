@@ -1,22 +1,22 @@
 -- | miFilter :: (Float -> Bool) -> [Float] -> [Float]
--- | Propósito: conservar solo los elementos que cumplen el predicado.
+-- | Propósito: Conservar solo los elementos que cumplen los requerimientos establecidos desde la función.
 -- | Entradas: p (Float -> Bool), xs [Float]
--- | Salida: sublista de xs con los x tales que p x == True
+-- | Salida: Una sublista de xs con los x tales que haya p x == True
 miFilter :: (Float -> Bool) -> [Float] -> [Float]
 miFilter _ []     = []
 miFilter p (x:xs) = if p x then x : miFilter p xs else miFilter p xs
 
 -- | remData :: [Float] -> Float -> Float -> [Float]
--- | Propósito: mantener elementos en el intervalo [lower, upper].
+-- | Propósito: Mantener elementos en el intervalo [lower, upper].
 -- | Entradas: xs [Float], lower Float, upper Float
--- | Salida: sublista con lower <= x <= upper
+-- | Salida: Una sublista con lower <= x <= upper
 remData :: [Float] -> Float -> Float -> [Float]
 remData xs lower upper = miFilter (\x -> x >= lower && x <= upper) xs
 
 -- | insertDesc :: Float -> [Float] -> [Float]
--- | Propósito: insertar un número en una lista ya ordenada DESC.
--- | Entradas: x :: Float, ys :: [Float] (ordenada desc)
--- | Salida: lista resultante, también ordenada desc
+-- | Propósito: Insertar un número en una lista ya ordenada "DESCENDENTEMENTE" (DESC).
+-- | Entradas: x :: Float, ys :: [Float] (ordenada descendentemente)
+-- | Salida: lista resultante, también ordenada descendentemente
 insertDesc :: Float -> [Float] -> [Float]
 insertDesc x [] = [x]
 insertDesc x (y:ys)
@@ -24,15 +24,15 @@ insertDesc x (y:ys)
   | otherwise = y : insertDesc x ys
 
 -- | orderDesc :: [Float] -> [Float]
--- | Propósito: ordenar números en orden descendente sin usar (++).
--- | Entrada: lista de Float
--- | Salida: la misma lista ordenada de mayor a menor
+-- | Propósito: Ordenar números en orden descendente.
+-- | Entrada: Lista de Floats
+-- | Salida: la misma lista dada, pero ordenada de mayor a menor.
 orderDesc :: [Float] -> [Float]
 orderDesc []     = []
 orderDesc (p:xs) = insertDesc p (orderDesc xs)
 
 -- | main :: IO ()
--- | Propósito: ejemplos de uso
+-- | Propósito: Establecer los ejemplos de uso.
 main :: IO ()
 main = do
   print (remData [1,9,3,7,2,6,4,8,5,10] 2 6)
