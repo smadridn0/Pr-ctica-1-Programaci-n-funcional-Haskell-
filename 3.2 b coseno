@@ -1,13 +1,38 @@
+-- ==============================================================
+-- Aproximación de cos(x) con serie de Maclaurin truncada + error %
+-- ==============================================================
+
+-- | factor :: Int -> Double
+-- | Propósito: calcular n! (factorial) de forma recursiva.
+-- | Entradas: x :: Int  (x ≥ 0)
+-- | Salida  : x! como Double
 factor :: Int -> Double
 factor 0 = 1
 factor x = fromIntegral x * factor (x - 1)
 
+-- | cose :: Double -> Int -> Double
+-- | Propósito: aproximar cos(m) con la serie de Maclaurin truncada:
+-- |            sum_{k=0..n} [ (-1)^k * m^(2k) / (2k)! ]
+-- | Entradas: m :: Double (ángulo en radianes)
+-- |           n :: Int    (número de términos hasta k = n, n ≥ 0)
+-- | Salida  : aproximación de cos(m) como Double
 cose :: Double -> Int -> Double
 cose m n = sum [ ((-1) ^ k) / factor (2 * k) * (m ** fromIntegral (2 * k)) | k <- [0..n] ]
 
+-- | ep :: Double -> Int -> Double
+-- | Propósito: calcular el error porcentual relativo de la aproximación
+-- |            anterior respecto a cos(x) de Prelude.
+-- | Fórmula : |cos(x) - cose x y| / |cos(x)| * 100
+-- | Entradas: x :: Double (ángulo en radianes)
+-- |           y :: Int    (términos usados en la aproximación)
+-- | Salida  : error porcentual (Double)
 ep :: Double -> Int -> Double
 ep x y = (abs(cos(x)-cose x y)/abs(cos(x)))*100
 
+-- | main :: IO()
+-- | Propósito: ejemplo de uso; imprime aproximación, valor de referencia,
+-- |            y error porcentual para x = 3 y n = 25.
+-- | Entradas/Salidas: E/S por consola.
 main :: IO()
 main =do
     print(cose (3 ) 25)
