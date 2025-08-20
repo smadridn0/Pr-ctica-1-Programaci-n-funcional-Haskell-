@@ -1,16 +1,46 @@
+-- | factor :: Double -> Double
+-- | Propósito: calcular el “factorial” de x de forma recursiva.
+-- |            (Nota: definida pero NO utilizada en esta aproximación.)
+-- | Entradas : x :: Double  (se asume entero no negativo)
+-- | Salida   : x! como Double
 factor :: Double -> Double
 factor 0 = 1
 factor x =  x * factor (x - 1)
 
+-- | logn :: Double -> Int -> Double
+-- | Propósito: aproximar ln(m) con la serie de Mercator truncada:
+-- |   ln(m) ≈ Σ_{k=1..n} [ (-1)^{k+1} * (m-1)^k / k ]
+-- | Entradas : m :: Double (argumento del logaritmo, en radianes no aplica)
+-- |           n :: Int    (número de términos; n ≥ 1)
+-- | Salida   : aproximación de ln(m) como Double
+-- | Nota de convergencia: la serie converge para |m - 1| < 1, es decir m ∈ (0, 2).
 logn :: Double -> Int -> Double
 logn m n = sum [ ((-1) ^ (k+1)) * ((m - 1) ** fromIntegral k) / fromIntegral k
                | k <- [1..n] ]
 
+-- | ep :: Double -> Int -> Double
+-- | Propósito: calcular el error porcentual relativo de la aproximación
+-- |            anterior respecto a log(x) de Prelude.
+-- | Fórmula  : |log(x) - logn x y| / |log(x)| * 100
+-- | Entradas : x :: Double (x > 0)
+-- |           y :: Int    (términos usados en la aproximación)
+-- | Salida   : error porcentual en porcentaje (Double)
 ep :: Double -> Int -> Double
 ep x y = (abs(log(x)-logn x y)/abs(log(x)))*100
 
+-- | main :: IO()
+-- | Propósito: ejemplo de uso; imprime aproximación, valor de referencia,
+-- |            y error porcentual para x = 0.5 y n = 25.
+-- | I/O: salida por consola.
 main :: IO()
 main =do
     print(logn (0.5 ) 25)
     print(log(0.5 ))
     print(ep (0.5 ) 25)
+
+
+
+
+
+Demander à ChatGPT
+
