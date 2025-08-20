@@ -1,7 +1,7 @@
 -- | factor :: Float -> Float
--- | Propósito: calcular el factorial de x de forma recursiva.
--- | Entradas: x :: Float  (se asume x entero no negativo representado como Float)
--- | Salida:   x! como Float
+-- | Propósito: Calcular el factorial de un numero x de forma recursiva.
+-- | Entradas: x :: Float  (se toma a x como un entero no negativo representado como Float)
+-- | Salida:   El número x! como Float.
 factor:: Float -> Float
 factor 0 = 1
 factor x = x* factor (x-1)
@@ -11,14 +11,14 @@ factor x = x* factor (x-1)
 -- |            1 + m/1! + m^2/2! + ... + m^(n-1)/(n-1)!
 -- | Entradas: m :: Float  (valor en el que se evalúa e^m)
 -- |           n :: Float  (número de términos; se asume n >= 1 y entero)
--- | Salida:   suma parcial de la serie como Float
+-- | Salida:   La suma parcial de la serie como Float.
 euler:: Float -> Float -> Float
 euler m 1=1
 euler m n=((m**(n-1))/(factor(n-1))) + euler m (n-1)
 
 -- | ep :: Float -> Float -> Float
--- | Propósito: calcular el error porcentual de la aproximación anterior
--- |            respecto al valor de referencia exp(x).
+-- | Propósito: Calcular el error porcentual de la aproximación anterior
+-- |            respecto al valor de referencia "exp(x)".
 -- | Entradas: x :: Float (valor objetivo)
 -- |           y :: Float (número de términos usados en la aproximación)
 -- | Salida:   |exp(x) - euler x y| / exp(x) * 100  (porcentaje, Float)
@@ -26,8 +26,8 @@ ep:: Float -> Float ->Float
 ep x y = (((abs((exp(x))-(euler x y)))/(exp(x)))*100)
 
 -- | main :: IO()
--- | Propósito: ejemplo de uso; imprime aproximación, valor de referencia y error %.
--- | Entradas: ninguna
+-- | Propósito: ejemplo de uso; imprime aproximación, valor de referencia y error porcentual.
+-- | Entradas: Ninguna
 -- | Salidas:  líneas en consola con los tres resultados
 main :: IO()
 main =   do
