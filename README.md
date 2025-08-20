@@ -1,5 +1,5 @@
 ### REPORTE
-##PUNTO 1: FUNCIONES UTILES:
+## PUNTO 1: FUNCIONES UTILES:
 Para esta actividad era necesario crear dos funciones, una que eliminara elementos de una lista por fuera de un intervalo, y otra que ordene flotantes en orden desendiente.
 
 # Eliminar elementos:
