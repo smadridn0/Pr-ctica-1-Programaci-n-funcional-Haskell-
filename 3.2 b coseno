@@ -1,7 +1,3 @@
--- ==============================================================
--- Aproximación de cos(x) con serie de Maclaurin truncada + error %
--- ==============================================================
-
 -- | factor :: Int -> Double
 -- | Propósito: calcular n! (factorial) de forma recursiva.
 -- | Entradas: x :: Int  (x ≥ 0)
