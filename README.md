@@ -18,7 +18,7 @@ Luego en la funcion de ordenDesc, se toma el primer elemento de una lista de flo
 a remData se le pasarón [1,9,3,7,2,6,4,8,5,10], 2 y 6 como argumentos, y el programa devolvió [3.0,2.0,6.0,4.0,5.0]; y a orderDesc la lista de flotantes [3.8,1.2,5.1,2.7,5.4], y devolvió [5.4,5.1,3.8,2.7,1.2].
 
 ### dificultades y soluciones:
-En primer lugar, como no teníamos experiencia en usar funcines que tomen otras funciones como argumento, por lo cual se vió este video https://www.youtube.com/watch?v=7JK6qtpKLoQ&t=107s, en el cual aprendimos sobre las funciones como argumento y sobre la notación lambda, que fueron usados para solucionar nuestras dificultades.
+En primer lugar, como no teníamos experiencia en usar funcines que tomen otras funciones como argumento, por lo cual se vió este video https://www.youtube.com/watch?v=7JK6qtpKLoQ&t=107s, en el cual aprendimos sobre las funciones como argumento y sobre la notación lambda, que fueron usados en nuestro codigo. Luego de esto no experimentamos mas dificultades. Un problema que estabamos teniendo era con los condicionales, que originalmente hicimos usando |, como se explico en la clase, no obstante, por motivos que despues aprendimos que eran por identación, el codigo no nos estaba funcionando, por lo que decidimos hacerlo con "if", "then" y "else".
 
 ## Punto 2: Metodos numericos
 Se tenía que hacer funciones para aproximar la función exponencial, el coseno y el logaritmo natural.
@@ -122,5 +122,17 @@ Que usaba exclusivamente floats;  no obstante, seguía sin funcionar, por lo cua
 Originalmente tampoco se pudo hacer la función logaritmica, pues en la formula de la guía la sumatoria empieza con n=0, con lo cual da un resultado infinito, por eso es espero a la clase para que el profesor clarificaba que debía empezar con n=1.
 También había problemas con el error porcentual, pues con la función coseno abeces daba un resultado negativo, devido a que el coseno de ciertos numeros lo es. Esto se solucionó aplicando valor absoluto a todos los componentes de la división, para que el resultado sea siempre positivo.
 
+## Punto 3: transformación discreta de coseno:
 
+Primero se hizo una función para definir el valor de a(k) según se nos dió en la formula, que recibe el valor de k y el tamaño de la lista. Definiendo a(k) según si el valor de k es 0 o no. Luego, se tiene otra función llamada dctK que aplica la formula a cada elemento individual de la lista, recibiendo como entrada la lista y el elemento. Para esto, se crean dos variables, una que es el valor de a(k), y otra que es el resultado del resto de la operación, para despues multiplicarse la una con la otra.
+La ultima función toma como entrada la lista, y usa map para pasar todos los elementos por dctK, para así devolver una nueva lista con los resultados de la transformación.
 
+### resultados de las pruebas:
+Se pasó como entrada la lista [1,2,3,4,5,6,7,8,9,10], y el programa devolvió [17.392527130926087,-9.024851126140828,-3.1776437161565094e-15,-0.9666569027727293,-7.944109290391273e-16,-0.3162277660168405,-1.9860273225978185e-15,-0.12787039268579026,2.383232787117382e-15,-3.5857300383882226e-2], que es el resultado que indica el ejemplo de la guía, por lo que podemos asumir que está bien.
+
+### Dificultades y soluciones:
+El primer problema al que nos enfrentamos era que necesitabamos tanto el elemento de la lista como su indice. La primera solución que dimos era hacer que, a la hora de hacer la sumatoria, la función pase por cada elemento de la lista, mientras aumente un contador para usar como indice del elemento. Sin embargo, como las funciones en haskell son inmutables, no sabíamos como hacer un contador, o si siquiera era posible. Por esto, una segunda solución fue usar el !!, que busca un elemento en una lista en un indice determinado, de modo que la sumatoria puede hacerse itinerando por los enteros del 0 a n-1(los indices), y usando el !! para saber que valor se asocia a cada indice.
+
+# concluciones:
+Esta practica nos ayudo a solidificar nuestros saberes de haskell al darnos un espacio en el cual debíamos aplicar todos los conceptos adquiridos en clase, ademas de consultar y aprender conceptos nuevos sobre el lenguaje. De esta manera, aprendimos a escribir un codigo que no solo resulta mucho mas eficiente, sino mas conciso e incluso estetico, en comparación a como se haría en lenguajes mas tradicionales como java o python. 
+El uso de la programación funcional también nos obligo a pensar los problemas de una forma diferente, no tanto en el paso a paso para resolver un problema, sino en QUE ES el problema que debemos resolver, lo cual consideramos una perspectiva bastante sofisticada que intentaremos aplicar en la medida de lo posible en el futuro a la hora de aplicar problemas matematicos.
