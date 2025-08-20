@@ -1,5 +1,3 @@
-
-
 -- | factor :: Float -> Float
 -- | Propósito: calcular el factorial de x de forma recursiva.
 -- | Entradas: x :: Float  (se asume x entero no negativo representado como Float)
