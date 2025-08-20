@@ -1,5 +1,5 @@
 -- | a :: Int -> Int -> Double
--- | Propósito: factor de normalización a(k,n) de la DCT-II ortonormal.
+-- | Propósito: valor de a(k) de la DCT.
 -- | Entradas:
 -- |   k : índice del coeficiente (0..n-1)
 -- |   n : número total de muestras (n >= 1)
@@ -11,7 +11,7 @@ a k n
     | otherwise = sqrt (2 / fromIntegral n)
 
 -- | dctK :: [Double] -> Int -> Double
--- | Propósito: calcular el coeficiente k-ésimo X_k de la DCT-II.
+-- | Propósito: calcular el coeficiente k-ésimo X_k de la DCT.
 -- | Entradas:
 -- |   xs : señal de entrada (lista de Doubles) de longitud n
 -- |   k  : índice del coeficiente (0..n-1)
@@ -26,7 +26,7 @@ dctK xs k =
     in factor * sum terms
 
 -- | dct :: [Double] -> [Double]
--- | Propósito: calcular todos los coeficientes de la DCT-II de la señal xs.
+-- | Propósito: calcular todos los coeficientes de la DCT de la señal xs.
 -- | Entrada:
 -- |   xs : lista de n muestras (n >= 1)
 -- | Salida:
