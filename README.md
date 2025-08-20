@@ -33,7 +33,7 @@ Se usa una función recursiva donde se aplica la formula dada a m tomando la pre
 
 De forma similar, toma dos numeros, m y la precición n. Despues, para cada enero k de 0 a n, se aplica la formula dada tomando m como x y k como n, y se suman todos los resultados para todos los valores de k. Finalmente se usa la función de error porcentual con el resulado obtenido y la función cos de Haskell.
 
-# Función de logaritmo natural:
+### Función de logaritmo natural:
 El proceso fue casi igual al del coseno; la función toma dos numeros, m y la precición n. Despues, para cada enero k de 0 a n, se aplica la formula para el logaritmo natural tomando m como x y k como n, y se suman todos los resultados para todos los valores de k. Finalmente se usa la función de error porcentual con el resulado obtenido y la función log de Haskell.
 
 ### Resultados de las pruebas:
