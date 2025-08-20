@@ -16,7 +16,7 @@ remData xs lower upper = miFilter (\x -> x >= lower && x <= upper) xs
 -- | insertDesc :: Float -> [Float] -> [Float]
 -- | Propósito: insertar un número en una lista ya ordenada DESC.
 -- | Entradas: x :: Float, ys :: [Float] (ordenada desc)
--- | Salida: lista resultante, también ordenada desc, usando solo (:)
+-- | Salida: lista resultante, también ordenada desc
 insertDesc :: Float -> [Float] -> [Float]
 insertDesc x [] = [x]
 insertDesc x (y:ys)
