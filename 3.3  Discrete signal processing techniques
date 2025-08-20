@@ -1,8 +1,22 @@
+-- | a :: Int -> Int -> Double
+-- | Propósito: factor de normalización a(k,n) de la DCT-II ortonormal.
+-- | Entradas:
+-- |   k : índice del coeficiente (0..n-1)
+-- |   n : número total de muestras (n >= 1)
+-- | Salida:
+-- |   sqrt(1/n) si k = 0; sqrt(2/n) en caso contrario.
 a :: Int -> Int -> Double
 a k n
     | k == 0    = sqrt (1 / fromIntegral n)
     | otherwise = sqrt (2 / fromIntegral n)
 
+-- | dctK :: [Double] -> Int -> Double
+-- | Propósito: calcular el coeficiente k-ésimo X_k de la DCT-II.
+-- | Entradas:
+-- |   xs : señal de entrada (lista de Doubles) de longitud n
+-- |   k  : índice del coeficiente (0..n-1)
+-- | Salida:
+-- |   X_k = a(k,n) * sum_{i=0}^{n-1} x_i * cos( (i+0.5)*π*k / n )
 dctK :: [Double] -> Int -> Double
 dctK xs k =
     let n = length xs
@@ -11,12 +25,20 @@ dctK xs k =
                  | i <- [0..n-1] ]
     in factor * sum terms
 
-
+-- | dct :: [Double] -> [Double]
+-- | Propósito: calcular todos los coeficientes de la DCT-II de la señal xs.
+-- | Entrada:
+-- |   xs : lista de n muestras (n >= 1)
+-- | Salida:
+-- |   lista [X_0, X_1, ..., X_{n-1}] con los coeficientes de la DCT-II.
 dct :: [Double] -> [Double]
 dct xs =
     let n = length xs
     in map (dctK xs) [0 .. n-1]
 
-
+-- | main :: IO ()
+-- | Propósito: ejemplo de uso; imprime la DCT de la lista [1..10].
+-- | I/O: salida por consola con la lista de coeficientes.
 main :: IO ()
 main = print (dct [1,2,3,4,5,6,7,8,9,10])
+
