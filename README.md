@@ -104,6 +104,12 @@ Que retornó
 9.831559944439784
 Que, si bien aún tiene un error porcentual relativamente bajo, es mucho menos precisa que cuando se le da una precisión alta
 
+| Función       | Parámetros (x, n) | Valor aproximado (nuestra función) | Valor real (Haskell) | Error porcentual |
+|---------------|------------------|-------------------------------------|----------------------|------------------|
+| **Exponencial** | (5, 15) | 148.3796 | 148.4131591025766 | 2.2618841e-2 |
+| **Coseno**      | (3, 25) | -0.9899924966004455 | -0.9899924966004454 | 1.1214458982644546e-14 |
+| **Logaritmo**   | (0.5, 25) | -0.6931471794534005 | -0.6931471805599453 | 1.5964066157325645e-7 |
+
 ### Dificultades y soluciones
 Se tardó mucho en hacer la función coseno, pues originalmente se veía
 factor:: Float -> Float
