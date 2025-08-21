@@ -58,7 +58,7 @@ Que devolvió
 18.5
 148.4131591025766
 87.5348.
-Con un error porcentual demasiado grande, debido a la baja precición.
+Con un error porcentual demasiado grande, debido a la baja precisión.
 En la función coseno se usó
 main :: IO()
 main =do
