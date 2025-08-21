@@ -13,16 +13,6 @@ miFilter p (x:xs) = if p x then x : miFilter p xs else miFilter p xs
 remData :: [Float] -> Float -> Float -> [Float]
 remData xs lower upper = miFilter (\x -> x >= lower && x <= upper) xs
 
--- | insertDesc :: Float -> [Float] -> [Float]
--- | Propósito: Insertar un número en una lista ya ordenada "DESCENDENTEMENTE" (DESC).
--- | Entradas: x :: Float, ys :: [Float] (ordenada descendentemente)
--- | Salida: lista resultante, también ordenada descendentemente
-insertDesc :: Float -> [Float] -> [Float]
-insertDesc x [] = [x]
-insertDesc x (y:ys)
-  | x >= y    = x : y : ys
-  | otherwise = y : insertDesc x ys
-
 -- | orderDesc :: [Float] -> [Float]
 -- | Propósito: Ordenar números en orden descendente.
 -- | Entrada: Lista de Floats
