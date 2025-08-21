@@ -4,7 +4,7 @@ Para esta actividad era necesario crear dos funciones, una que eliminara element
 
 ### Eliminar elementos:
 
-Para eliminar elementos, se decidió que el programa tomara la lista inicial, y creara otra lista con los elementos que cumplieran con la condición de que fueran menores que el límite superior, y mayores que el límite superior.
+Para eliminar elementos, se decidió que el programa tomara la lista inicial, y creara otra lista con los elementos que cumplieran con la condición de que fueran menores que el límite superior, y mayores que el límite inferior.
 Para conseguir esto se crearon dos funciones; la primera, llamada miFilter(se nombró así para que el programa no se confunda con la función filter, que ya está establecida en Haskell), recibe una función que devuelve un booleano y una lista de tipo float, y devuelve una lista del mismo tipo. Esta función revisa si el primer elemento de la lista al aplicársele la función booleana devuelve verdadero, si si, entonces este elemento se convierte en el primer elemento de la lista de salida, y el cuerpo de la lista llama recursivamente la función, añadiendo elemento por elemento hasta vaciar la lista, lo cual es la condición de stop que regresa una lista vacía. En caso de que la función booleana devuelva falso, el elemento x no se incluye en la salida, sino que se llama otra vez a la función directamente.
 La segunda función simplemente toma la lista, un límite inferior y un límite superior; y simplemente usa la función de filtro tomando como parámetro la función  (\x -> x >= lower && x <= upper), que revisa si x es mayor que lower(límite inferior) y menor que upper(límite superior).
 
