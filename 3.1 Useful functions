@@ -1,5 +1,5 @@
 -- | miFilter :: (a -> Bool) -> [a] -> [a]
--- | Propósito: conservar solo los elementos que cumplen el predicado.
+-- | Propósito: conservar solo los elementos que cumplen el requerimiento.
 -- | Entradas: p (a -> Bool), xs [a]
 -- | Salida: sublista de xs con los x tales que p x == True
 miFilter :: (a -> Bool) -> [a] -> [a]
@@ -24,7 +24,7 @@ insertDesc x (y:ys)
   | otherwise = y : insertDesc x ys
 
 -- | orderDesc :: [Float] -> [Float]
--- | Propósito: ordenar números en orden descendente sin usar (++).
+-- | Propósito: ordenar números en orden descendente.
 -- | Entrada: lista de Float
 -- | Salida: la misma lista ordenada de mayor a menor
 orderDesc :: [Float] -> [Float]
